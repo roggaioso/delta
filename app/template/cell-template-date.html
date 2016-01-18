@@ -1,0 +1,5 @@
+<!-- grid.appScope é definido pelo ui-grid, e faz referẽncia ao $scope do controller -->
+<!-- row.entity também é definido pelo ui-grid, e faz referẽncia à linha selecionada -->
+<div class="ui-grid-cell-contents">
+    <p ng-bind="row.entity[col.colDef.field] | date: 'dd/MM/yyyy'"></p>
+</div>

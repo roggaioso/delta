@@ -1,0 +1,9 @@
+<!-- grid.appScope é definido pelo ui-grid, e faz referẽncia ao $scope do controller -->
+<!-- row.entity também é definido pelo ui-grid, e faz referẽncia à linha selecionada -->
+<div class="ui-grid-cell-contents">
+    <button class="btn btn-primary btn-xs"
+        type="button"
+        ng-click="grid.appScope.onClickEditar(row.entity)">
+        <i class="fa fa-pencil"></i>
+    </button>
+</div>

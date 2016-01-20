@@ -19,7 +19,7 @@ config.$inject = ['$stateProvider', '$urlRouterProvider'];
 //definição das rotas
 function config($stateProvider, $urlRouterProvider){
 
-    //página que será redirecionada caso seja digitado um endereço errado. Ex.: criar uma rota para página de erro
+    //página que será redirecionada caso seja digitado um endereço errado
     $urlRouterProvider.otherwise("/home");
 
 
@@ -35,8 +35,9 @@ function config($stateProvider, $urlRouterProvider){
     };
 
     //o $ocLazyLoad.load aceita um array, para poder carregar mais de um arquivo
+    //o :id aceita valores passados pela URL
     var cadastroPessoa = {
-        url: "/cadastroPessoa",
+        url: "/cadastroPessoa/:id",
         templateUrl: "app/views/pessoa/cadastro-pessoa.html",
         resolve: {
             deps: function($ocLazyLoad){

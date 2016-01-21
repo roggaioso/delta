@@ -1,6 +1,10 @@
-angular.module('primeiro')
-    .filter('maiusculo', maiusculo);
+(function(){
+    'use strict';
 
+    angular.module('primeiro')
+        .filter('maiusculo', maiusculo);
+
+    /* @ngInject */
     function maiusculo() {
         return function(input){
             if(input && (typeof input === 'string')){
@@ -8,5 +12,6 @@ angular.module('primeiro')
             }
 
             return input;
-        }
-    };
+        };
+    }
+})();

@@ -27,10 +27,11 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
 
-    <script src="app/js/primeiro-config.js"></script>
-    <script src="app/controller/index-controller3.js"></script>
-    <script src="app/arquitetura/service/alert-service.js"></script>
-    <script src="app/arquitetura/filter/maiusculo.js"></script>
+    <script src="app/js/primeiro.module.js"></script>
+    <script src="app/js/primeiro.config.js"></script>
+m     <script src="app/controller/index.controller3.js"></script>
+    <script src="app/arquitetura/service/alert.service.js"></script>
+    <script src="app/arquitetura/filter/maiusculo.filter.js"></script>
 
     <!-- para localizar divs perdidas ou mal hierarquizadas
     <style type="text/css">
@@ -40,7 +41,7 @@
 
 </head>
 <body ng-app="primeiro">
-<div ng-controller="IndexController3" class="container">
+<div ng-controller="IndexController3 as vmIndex" class="container">
     <div>
         <!-- no ui-sref insere-se uma das rotas definidas (ver arquivo de configuração) -->
         <button class="btn btn-default"
@@ -60,11 +61,11 @@
             Pesquisa de pessoas
         </button>
         <button class="btn btn-default"
-                ng-click="disparaEvento()">
+                ng-click="vmIndex.disparaEvento()">
             Disparar evento
         </button>
         <button class="btn btn-default"
-                ng-click="disparaEventoInexistente()">
+                ng-click="vmIndex.disparaEventoInexistente()">
             Disparar evento Inexistente
         </button>
     </div>

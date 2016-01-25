@@ -94,6 +94,19 @@
                     expand: true,
                     src: 'build/**/*.css'
                 }
+            },
+
+            ngdocs: {
+                options: {
+                    dest: 'docs',
+                    title: 'Docs',
+                    html5Mode: false
+                },
+                primeiro: {
+                    src: [
+                        'app/**/*.js'
+                    ]
+                }
             }
 
         });
@@ -106,7 +119,8 @@
             'autoprefixer',
             'uglify',
             'cssmin',
-            'htmlmin'
+            'htmlmin',
+            'ngdocs'
         ]);
     };
 })();

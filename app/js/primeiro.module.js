@@ -4,6 +4,8 @@
     angular.module('primeiro.controller', []);
     angular.module('primeiro.service', []);
     angular.module('primeiro.factory', []);
+    angular.module('primeiro.directive', []);
+
 
 
     angular.module('primeiro', [
@@ -12,6 +14,10 @@
             'ui.grid',
             'ngMaterial',
             'ui.router',
-            'oc.lazyLoad'
+            'oc.lazyLoad',
+            'primeiro.controller',
+            'primeiro.service',
+            'primeiro.factory',
+            'primeiro.directive'
         ]);
 })();

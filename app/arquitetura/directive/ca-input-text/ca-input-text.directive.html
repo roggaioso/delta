@@ -1,0 +1,21 @@
+<!--
+ng-model só funciona no inputText, por isso foi preciso passar a informação desejada através do link.
+Neste caso, o objeto criado no controller da diretiva (ngModel, criado pelo scope) foi repassado para cá.
+Para criar o objeto desejado dinamicamente, era necessária a informação passada no argumento do
+programador. O link fez a troca de informação entre o HTML e a diretiva
+-->
+<div ng-class="myColSpan">
+    <div class="form-group">
+        <label>
+            <label class="control-label" ng-bind="label"></label>
+            <label style="color: red" ng-if="ngRequired">
+                <i class="fa fa-asterisk"></i>
+            </label>
+        </label>
+
+        <input type="text"
+                class="form-control"
+                ng-model="ngModel"
+                ng-required="ngRequired">
+    </div>
+</div>

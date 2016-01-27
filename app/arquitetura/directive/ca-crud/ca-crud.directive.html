@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span ng-bind="titulo"></span>
+    </div>
+    <div class="panel-body">
+        <form name="formCrud"
+              ng-submit="salvar()"
+              novalidate>
+
+            <!-- o trecho definido na directiva será inserido aqui na execução -->
+            <div ng-transclude></div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-save"></i>
+                        Salvar
+                    </button>
+                    <button class="btn btn-default" type="button" ng-click="limpar()">
+                        <i class="fa fa-eraser"></i>
+                        Limpar
+                    </button>
+                    <button class="btn btn-danger" type="button"  ng-click="excluir()">
+                        <i class="fa fa-trash-o"></i>
+                        Excluir
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -17,6 +17,7 @@
          * @param {boolean} ng-required Informa se o campo é obrigatório ou não. Default:false
          */
 
+        /* @ngInject */
         angular.module('primeiro.directive')
             .directive('caInputText', caInputText);
 

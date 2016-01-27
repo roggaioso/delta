@@ -5,7 +5,7 @@
     <!-- para auxiliar o uso do F12 no Chrome, dando zoom em telas pequenas -->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>UI-Router, OCLazyLoad</title>
+    <title>Transclude</title>
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
@@ -27,7 +27,6 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
-    <script src="bower_components/angular-keycode/angular-keycode.js"></script>
 
     <script src="app/js/primeiro.module.js"></script>
     <script src="app/js/primeiro.config.js"></script>
@@ -36,6 +35,7 @@
     <script src="app/arquitetura/filter/maiusculo.filter.js"></script>
     <script src="app/arquitetura/directive/ca-span/ca-span.directive.js"></script>
     <script src="app/arquitetura/directive/ca-input-text/ca-input-text.directive.js"></script>
+    <script src="app/arquitetura/directive/ca-crud/ca-crud.directive.js"></script>
 
     <!-- para localizar divs perdidas ou mal hierarquizadas
     <style type="text/css">
@@ -47,25 +47,23 @@
 <body ng-app="primeiro">
 <div ng-controller="IndexController4 as vmIndex" class="container">
 
-    <ca-span></ca-span>
-    <ca-span texto="valor informado via scope do ca-span-directive"></ca-span>
+    <!-- uma diretiva dentro da outra só funciona se habilitar o transclude na xxx.directive.js-->
+    <ca-crud titulo="Cadastro de Pessoa"
+                salvar="vmIndex.salvar()"
+                limpar="vmIndex.limpar()"
+                excluir="vmIndex.excluir()">
+        <div class="row">
+            <ca-input-text label="Nome"
+                           colspan="3"
+                           ng-model="vmIndex.entidade.nome">
+            </ca-input-text>
+            <ca-input-text label="Sobrenome"
+                           colspan="3"
+                           ng-model="vmIndex.entidade.sobrenome">
+            </ca-input-text>
 
-    <div ca-span texto="diretiva funcionando como elemento"></div>
-
-    <div class="row">
-        <ca-input-text label="Nome"
-                       colspan="4"
-                       ng-model="vmIndex.entidade.nome"
-                       ng-required="true">
-        </ca-input-text>
-        <ca-input-text label="Sobrenome"
-                       colspan="4"
-                       ng-model="vmIndex.entidade.sobrenome">
-        </ca-input-text>
-
-    </div>
-
-    {{vmIndex.entidade}}
+        </div>
+    </ca-crud>
 
 </div>
 </body>

@@ -5,7 +5,7 @@
     <!-- para auxiliar o uso do F12 no Chrome, dando zoom em telas pequenas -->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>UI-Router, OCLazyLoad</title>
+    <title>Transclude múltiplo + KeyCode</title>
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
@@ -16,7 +16,6 @@
 
     <!--    <link rel="stylesheet" href="app/css/media-queries.css"> -->
     <link rel="stylesheet" href="app/css/meu-style.css">
-    <link rel="stylesheet" href="app/arquitetura/style/ca-style.css">
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
@@ -36,6 +35,9 @@
     <script src="app/arquitetura/filter/maiusculo.filter.js"></script>
     <script src="app/arquitetura/directive/ca-span/ca-span.directive.js"></script>
     <script src="app/arquitetura/directive/ca-input-text/ca-input-text.directive.js"></script>
+    <script src="app/arquitetura/directive/ca-crud/ca-crud.directive.js"></script>
+    <script src="app/arquitetura/directive/ca-panel/ca-panel.directive.js"></script>
+    <script src="app/arquitetura/directive/ca-enter/ca-enter.directive.js"></script>
 
     <!-- para localizar divs perdidas ou mal hierarquizadas
     <style type="text/css">
@@ -47,26 +49,40 @@
 <body ng-app="primeiro">
 <div ng-controller="IndexController4 as vmIndex" class="container">
 
-    <ca-span></ca-span>
-    <ca-span texto="valor informado via scope do ca-span-directive"></ca-span>
+    <!-- uma diretiva dentro da outra só funciona se habilitar o transclude na xxx.directive.js-->
+    <ca-panel titulo="Teste panel" ca-enter="vmIndex.testeFuncao()">
+        <!-- alias definido no ca-panel.directive.js (panel-body) -->
+        <!-- tudo o que for informado aqui será injetado pelo transclude -->
+        <panel-body>
+            <ca-input-text label="Teste panel"></ca-input-text>
+        </panel-body>
 
-    <div ca-span texto="diretiva funcionando como elemento"></div>
+        <!-- alias definido no ca-panel.directive.js (panel-body) -->
+        <panel-footer>
+            <button class="btn btn-primary">Teste footer</button>
+        </panel-footer>
+    </ca-panel>
 
-    <div class="row">
-        <ca-input-text label="Nome"
-                       colspan="4"
-                       ng-model="vmIndex.entidade.nome"
-                       ng-required="true">
-        </ca-input-text>
-        <ca-input-text label="Sobrenome"
-                       colspan="4"
-                       ng-model="vmIndex.entidade.sobrenome">
-        </ca-input-text>
+    <ca-panel titulo="Teste panel" tipo="panel panel-success">
+        <!-- alias definido no ca-panel.directive.js (panel-body) -->
+        <!-- tudo o que for informado aqui será injetado pelo transclude -->
+        <panel-body>
+            <ca-input-text label="Teste panel (com CSS alterado pelo programador)"></ca-input-text>
+        </panel-body>
 
-    </div>
+        <!-- alias definido no ca-panel.directive.js (panel-body) -->
+        <panel-footer>
+            <button class="btn btn-primary">Teste footer</button>
+        </panel-footer>
+    </ca-panel>
 
-    {{vmIndex.entidade}}
-
+    <ca-panel titulo="Teste panel" tipo="panel panel-danger">
+        <!-- alias definido no ca-panel.directive.js (panel-body) -->
+        <!-- tudo o que for informado aqui será injetado pelo transclude -->
+        <panel-body>
+            <ca-input-text label="Teste panel (com botão default, definido na diretiva)"></ca-input-text>
+        </panel-body>
+    </ca-panel>
 </div>
 </body>
 </html>

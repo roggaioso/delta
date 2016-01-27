@@ -18,7 +18,8 @@
     "grunt-contrib-cssmin": "~0.14.0",
     "grunt-contrib-htmlmin": "~0.6.0",
     "grunt-autoprefixer": "~3.0.3",
-    "grunt-ngdocs": "~0.2.9"
+    "grunt-ngdocs": "~0.2.9",
+    "grunt-contrib-less": "~1.1.0"
   },
   "devDependencies": {
     "load-grunt-tasks": "3.4.0",

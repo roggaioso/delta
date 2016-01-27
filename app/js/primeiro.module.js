@@ -18,6 +18,7 @@
             'primeiro.controller',
             'primeiro.service',
             'primeiro.factory',
-            'primeiro.directive'
+            'primeiro.directive',
+            'angular-keycode'
         ]);
 })();

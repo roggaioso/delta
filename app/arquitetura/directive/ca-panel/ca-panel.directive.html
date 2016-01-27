@@ -1,0 +1,20 @@
+<div ng-class="myPanel">
+
+    <div class="panel-heading">
+        <!-- titulo definido no scope da diretiva e valor informado pelo programador no HTML -->
+        <h3 class="panel-title" ng-bind="titulo"></h3>
+    </div>
+
+    <!-- alias definido no ca-panel.directive.js -->
+    <div class="panel-body">
+        <div ng-transclude="body"></div>
+    </div>
+
+    <!-- alias definido no ca-panel.directive.js -->
+    <div class="panel-footer">
+        <div ng-transclude="footer">
+            <button class="btn btn-danger">Botão do template</button>
+        </div>
+    </div>
+
+</div>

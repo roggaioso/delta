@@ -107,6 +107,14 @@
                         'app/**/*.js'
                     ]
                 }
+            },
+
+            less: {
+                app: {
+                    files: {
+                        'app/arquitetura/style/ca-style.css': 'app/arquitetura/style/ca-style.less'
+                    }
+                }
             }
 
         });
@@ -116,6 +124,7 @@
             'copy',
             'ngAnnotate',
             'concat',
+            'less',
             'autoprefixer',
             'uglify',
             'cssmin',

@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <form name="formCrud"
-              ng-submit="salvar()"
+              ng-submit="onSalvar()"
               novalidate>
 
             <!-- o trecho definido na directiva será inserido aqui na execução -->
@@ -17,7 +17,7 @@
                         <i class="fa fa-save"></i>
                         Salvar
                     </button>
-                    <button class="btn btn-default" type="button" ng-click="limpar()">
+                    <button class="btn btn-default" type="button" ng-click="onLimpar()">
                         <i class="fa fa-eraser"></i>
                         Limpar
                     </button>

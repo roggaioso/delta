@@ -5,6 +5,7 @@
     angular.module('primeiro.service', []);
     angular.module('primeiro.factory', []);
     angular.module('primeiro.directive', []);
+    angular.module('primeiro.filter', []);
 
 
 
@@ -18,7 +19,9 @@
             'primeiro.controller',
             'primeiro.service',
             'primeiro.factory',
+            'primeiro.filter',
             'primeiro.directive',
-            'angular-keycode'
+            'angular-keycode',
+            'ui.bootstrap'
         ]);
 })();

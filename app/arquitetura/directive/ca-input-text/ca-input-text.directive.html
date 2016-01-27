@@ -5,7 +5,7 @@ Para criar o objeto desejado dinamicamente, era necessária a informação passa
 programador. O link fez a troca de informação entre o HTML e a diretiva
 -->
 <div ng-class="myColSpan">
-    <div class="form-group">
+    <div class="form-group" ng-class="{'has-error': formControl[inputName].$invalid && formControl[inputName].$touched}">
         <label>
             <label class="control-label" ng-bind="label"></label>
             <!-- class definida nos arquivos .less -->
@@ -17,6 +17,13 @@ programador. O link fez a troca de informação entre o HTML e a diretiva
         <input type="text"
                 class="form-control"
                 ng-model="ngModel"
-                ng-required="ngRequired">
+                ng-required="ngRequired"
+                ng-maxlength="ngMaxlength"
+                ng-minlength="ngMinlength"
+                name="{{::inputName}}"
+                maxlength="{{::ngMaxlength}}">
+        <div class="help-block" ng-messages="formControl[inputName].$error" ng-if="formControl[inputName].$invalid && formControl[inputName].$touched">
+            <div ng-messages-include="app/arquitetura/template/mensagens.html"></div>
+        </div>
     </div>
 </div>
